@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>PAGINA PRUEBA</title>
+    </head>
+    <body style="background-image: url(fndinho.jpg); background-size: cover;">
+    <div style="color: white; font-size: medium; font-family:monospace ;">
+        <h1>TITULO rtx</h1>
+        <h1><a href="index.html">PAG1</a></h1>
+        <table border="2" style="color: gray;">
+            <tr>
+                <td>uno</td>
+                <td>dos</td>
+            </tr>
+        </table>
+        <hr>
+        <h1>Formulario</h1>
+        <form>
+            <label>Nombre</label>
+            <input type="text" id="Nombre"><br>
+            <label>edad</label>
+            <input type= "number" id="numero"><br>
+            <label>email</label>
+            <input type="email" id="email">
+        </form>
+        <select id="s">
+            <option value="Hombre">H</option>
+            <option value="Mujer">M</option>
+        </select>
+        <p id="resultado"></p>
+        <a href="fond.html" id="acced" style="display: none;">ACCESO</a>
+        <form>
+            <h2>No tienes cuenta creada</h2>
+            <label>Nombre</label>
+            <input type="text" id="Nombren"><br>
+            <label>edad</label>
+            <input type= "number" id="numerom"><br>
+            <label>email</label>
+            <input type="email" id="emailm">
+        </form>
+        <script>
+            function procesarlarespuest(){
+                localStorage.getItem("nombre")
+                var nombre = document.getElementById("Nombre").value;
+                var edad = document.getElementById("numero").value;
+                var email = document.getElementById("email").value;
+                var sexo = document.getElementById("s").value;
+                if (nombre == document.getElementById("Nombren").value && edad == document.getElementById("numerom").value && email == document.getElementById("emailm").value && sexo == document.getElementById("s1").value){
+                    document.getElementById("resultado").innerHTML = "PUEDES ACCEDER"
+                    document.getElementById("acced").style.display = "block"
+                }
+                else{
+                    document.getElementById("resultado").innerHTML = "NO PUEDES ACCEDER"
+                    document.getElementById("acced").style.display = "none"
+
+                }
+                
+            }
+        </script>
+        <select id="s1">
+            <option value="Hombre">H</option>
+            <option value="Mujer">M</option>
+        </select>
+        <input type="submit" onclick="procesarlarespuest()">
+        <hr>
+        <h1>Calculadora Simple</h1>
+        <form name="calculator">
+            <input type="text" name="display" id="display" disabled>
+            <br>
+            <input type="button" value="7" onclick="calculator.display.value += '7'">
+            <input type="button" value="8" onclick="calculator.display.value += '8'">
+            <input type="button" value="9" onclick="calculator.display.value += '9'">
+            <input type="button" value="/" onclick="calculator.display.value += '/'">
+            <br>
+            <input type="button" value="4" onclick="calculator.display.value += '4'">
+            <input type="button" value="5" onclick="calculator.display.value += '5'">
+            <input type="button" value="6" onclick="calculator.display.value += '6'">
+            <input type="button" value="-" onclick="calculator.display.value += '-'">
+            <br>
+            <input type="button" value="1" onclick="calculator.display.value += '1'">
+            <input type="button" value="2" onclick="calculator.display.value += '2'">
+            <input type="button" value="3" onclick="calculator.display.value += '3'">
+            <input type="button" value="+" onclick="calculator.display.value += '+'">
+            <br>
+            <input type="button" value="C" onclick="calculator.display.value = ''">
+            <input type="button" value="0" onclick="calculator.display.value += '0'">
+            <input type="button" value="^" onclick="calculator.display.value += '**'">
+            <input type="button" value="=" onclick="calculator.display.value = eval(calculator.display.value)">
+        </form>   
+     </div>
+    </body>
+</html>
