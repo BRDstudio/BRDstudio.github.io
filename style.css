@@ -1,6 +1,30 @@
 body{
     font-family: monospace;
 }
+
+    /* Estilos para pantallas de hasta 768px de ancho */
+  
+
+.tab{
+    
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+   
+}
+.tab1{
+    
+    text-shadow: 0 0 10px #ff00b3, 0 0 20px #ff00b3, 0 0 30px #ff00b3, 0 0 40px #ff00b3;
+   
+}
+.tab2{
+    
+    text-shadow: 0 0 10px #5900ff, 0 0 20px #5900ff, 0 0 30px #5900ff, 0 0 40px #5900ff;
+   
+}
+.tab3{
+    
+    text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000;
+   
+}
 .menu{
     list-style: none;
     padding: 0;
@@ -8,7 +32,7 @@ body{
     padding-left: 270px;
     background-color: black;
     width: 100%;
-    max-width: 1000px;
+    
     margin: auto;
 }
 .menu li a{
@@ -23,5 +47,75 @@ body{
     
 }
 .menu li a:hover{
-    background-color: gray;
+    background-color: #5900ff;
+}
+.menu1{
+    list-style: none;
+    padding: 0;
+    padding-right: 78px;
+    padding-left: 270px;
+    background-color: black;
+    width: 100%;
+    margin: auto;
+}
+.menu1 li a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    display: block;
+
+}
+.menu1 li{
+    display: inline-block;
+    
+}
+.menu1 li a:hover{
+    background-color: #ff00b3;
+}
+.menu3{
+    list-style: none;
+    padding: 0;
+    padding-right: 78px;
+    padding-left: 270px;
+    background-color: black;
+    width: 100%;
+    
+    margin: auto;
+}
+.menu3 li a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    display: block;
+
+}
+.menu3 li{
+    display: inline-block;
+    
+}
+.menu3 li a:hover{
+    background-color: #5e5e5e;
+}
+.menu2{
+    list-style: none;
+    padding: 0;
+    padding-right: 78px;
+    padding-left: 270px;
+    background-color: black;
+    width: 100%;
+    margin: auto;
+}
+.menu2 li a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    display: block;
+
+}
+.menu2 li{
+    display: inline-block;
+    
+}
+.menu2 li a:hover{
+    background-color: #ff0000;
 }
