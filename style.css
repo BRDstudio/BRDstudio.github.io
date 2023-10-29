@@ -29,13 +29,15 @@ body{
     list-style: none;
     padding: 0;
     
-    padding-left: 270px;
+    padding-left: 310px;
     background-color: black;
     width: 1079px;
     
     margin: auto;
 }
 .menu li a{
+    font-size:20px;
+    font-family: Kenia;
     text-decoration: none;
     color: white;
     padding: 20px;
@@ -53,12 +55,14 @@ body{
     list-style: none;
     padding: 0;
     padding-right: 78px;
-    padding-left: 270px;
+    padding-left: 310px;
     background-color: black;
     width: 1000px;
     margin: auto;
 }
 .menu1 li a{
+     font-size:20px;
+    font-family: Kenia;
     text-decoration: none;
     color: white;
     padding: 20px;
@@ -76,13 +80,15 @@ body{
     list-style: none;
     padding: 0;
     padding-right: 78px;
-    padding-left: 270px;
+    padding-left: 310px;
     background-color: black;
     width: 1000px;
     
     margin: auto;
 }
 .menu3 li a{
+     font-size:20px;
+    font-family: Kenia;
     text-decoration: none;
     color: white;
     padding: 20px;
@@ -100,12 +106,15 @@ body{
     list-style: none;
     padding: 0;
     padding-right: 78px;
-    padding-left: 270px;
+    padding-left: 310px;
     background-color: black;
     width: 1000px;
+
     margin: auto;
 }
 .menu2 li a{
+     font-size:20px;
+    font-family: Kenia;
     text-decoration: none;
     color: white;
     padding: 20px;
