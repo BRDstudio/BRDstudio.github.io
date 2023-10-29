@@ -1,7 +1,7 @@
 # BRDstudio.github.io
 Tomato clicker
 # Título de tu Proyecto
-#https://brdstudio.github.io/ fond
+#https://brdstudio.github.io/fond
 ![Logo Personalizable](https://th.bing.com/th/id/OIG.v20oaf1JjcVfvpuUSOHt?w=270&h=270&c=6&r=0&o=5&pid=ImgGn)
 
 Descripción corta de tu proyecto y su propósito.
