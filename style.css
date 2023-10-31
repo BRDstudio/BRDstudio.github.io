@@ -3,10 +3,10 @@ body{
 }
 
     /* Estilos para pantallas de hasta 768px de ancho */
-  
+@import url('https://fonts.google.com/specimen/Rubik+Glitch?query=rubik+g');
 @font-face {
         font-family: 'Rubik Glitch';
-        src: url(https://fonts.google.com/specimen/Rubik+Glitch?query=rubik+g) ;
+        src: url('https://fonts.google.com/specimen/Rubik+Glitch?query=rubik+g') ;
         
       }
 
