@@ -5,9 +5,11 @@ body{
     /* Estilos para pantallas de hasta 768px de ancho */
   
 @font-face {
-        font-family: 'Rubik glitch';
+        font-family: 'Rubik Glitch';
         src: url('C:\Users\ENMA\Downloads\Rubik_Glitch/Rubik_Glitch) format(truetype');
+        
       }
+
 .tab{
     
     text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
@@ -19,8 +21,9 @@ body{
    
 }
 .tab2{
-    font-family: 'Rubik glitch';
-    
+    font-family: 'Rubik Glitch';
+   
+
     text-shadow: 0 0 10px #0004ff, 0 0 20px #0004ff, 0 0 30px #0004ff, 0 0 40px #0004ff;
    
 }
