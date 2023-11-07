@@ -8,33 +8,3 @@
         <image:caption>Tomato clicker el nuevo juego</image:caption>
     </image:image>
 </url>
-<url>
-    <loc>https://brdstudio.github.io/BRDSTUDIO</loc>
-    <lastmod>2023-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.1</priority>
-    <image:image>
-        <image:loc>https://th.bing.com/th/id/OIG.v20oaf1JjcVfvpuUSOHt?w=270&h=270&c=6&r=0&o=5&pid=ImgGn</image:loc>
-        <image:caption>BRDSTUDIO</image:caption>
-    </image:image>
-</url>
-<url>
-    <loc>https://brdstudio.github.io/INFdes</loc>
-    <lastmod>2023-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.1</priority>
-    <image:image>
-        <image:loc>https://th.bing.com/th/id/OIG.v20oaf1JjcVfvpuUSOHt?w=270&h=270&c=6&r=0&o=5&pid=ImgGn</image:loc>
-        <image:caption>Información del desarrollador</image:caption>
-    </image:image>
-</url>
-<url>
-    <loc>https://brdstudio.github.io/Otrosjuegos</loc>
-    <lastmod>2023-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.2</priority>
-    <image:image>
-        <image:loc>https://th.bing.com/th/id/OIG.v20oaf1JjcVfvpuUSOHt?w=270&h=270&c=6&r=0&o=5&pid=ImgGn</image:loc>
-        <image:caption>Otros juegos de BRDSTUDIO</image:caption>
-    </image:image>
-</url>
