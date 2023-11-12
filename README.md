@@ -9,10 +9,10 @@ Tomato clicker un juego de BRDSTUDIO
 
 - [Pagina web](#Paginaweb)
 - [Plataformas](#Plataformas)
-- [Información tecnica](#INF.tecnica)
-- [Información del juego](#INF.juego)
+- [INF.tecnica](#INF.tecnica)
+- [INF.juego](#INF.juego)
 - [Trailer](#trailer)
-- [Sobre Nosotros](#BRDSTUDIO)
+- [BRDSTUDIO](#BRDSTUDIO)
 
 
 ## Paginaweb
@@ -41,13 +41,8 @@ Tomato Clicker es un juego sobre un granjero el cual quire cosechar el mejor tom
 Este es el trailer de Tomato clicker:
 [Enlace trailer](#https://www.youtube.com/embed/SRcCJQAwLKU)
 
-##BRDSTUDIO
+## BRDSTUDIO
 BRDSTUDIO es el estudio detrás del desarrollo de Tomato Clicker.
 
 ---
 
-¡Diviértete personalizando tu página web!
-
-Puedes incluir en tu proyecto un directorio donde almacenes el logo personalizable y luego en la sección de Personalización, especificar cómo los usuarios pueden reemplazar el logo predeterminado por el suyo propio. Además, asegúrate de proporcionar detalles específicos sobre tu proyecto y cómo se puede utilizar o personalizar.
-
-Ten en cuenta que el nombre de la licencia, el formato del README y otros detalles pueden variar según tus preferencias y necesidades específicas.
