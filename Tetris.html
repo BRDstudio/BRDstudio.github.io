@@ -10,17 +10,41 @@
             height: 100vh;
             margin: 0;
             background-color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        #game-container {
+            position: relative;
         }
 
         #game-board {
             border: 2px solid #fff;
             background-color: #000;
         }
+
+        #controls {
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left:420px;
+            display: flex;
+            flex-direction:line;
+            gap: 20px;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
-    <canvas id="game-board" width="300" height="600"></canvas>
-    <div style="font-family: Kenia;" id="score">Puntuación: 0</div>
+    <div id="game-container">
+        <canvas id="game-board" width="300" height="600"></canvas>
+        <div id="controls">
+            <button id="move-left">Izquierda</button>
+            <button id="move-right">Derecha</button>
+            <button id="move-down">Abajo</button>
+            <button id="rotate">Rotar</button>
+        </div>
+    </div>
+    <div id="score">Puntuación: 0</div>
     <div id="game-over" style="display: none; color: red; font-size: 24px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Game Over</div>
     <script>
         const canvas = document.getElementById('game-board');
@@ -30,6 +54,10 @@
         const cols = canvas.width / blockSize;
         const scoreDisplay = document.getElementById('score');
         const gameOverDisplay = document.getElementById('game-over');
+        const moveLeftButton = document.getElementById('move-left');
+        const moveRightButton = document.getElementById('move-right');
+        const moveDownButton = document.getElementById('move-down');
+        const rotateButton = document.getElementById('rotate');
 
         // Función para dibujar un cuadrado en el tablero
         function drawSquare(x, y, color) {
@@ -235,6 +263,32 @@
                 currentTetromino = newTetromino;
             }
         }
+
+        // Controles de botones para mover y rotar la pieza
+        moveLeftButton.addEventListener('click', () => {
+            if (canMove(0, -1)) {
+                currentTetrominoCol--;
+            }
+        });
+
+        moveRightButton.addEventListener('click', () => {
+            if (canMove(0, 1)) {
+                currentTetrominoCol++;
+            }
+        });
+
+        moveDownButton.addEventListener('click', () => {
+            dropInterval = 100; // Acelerar la caída
+        });
+
+        rotateButton.addEventListener('click', () => {
+            rotateTetromino();
+        });
+
+        document.addEventListener('mouseup', () => {
+            dropInterval = 1000; // Restaurar la velocidad de caída normal
+        });
     </script>
 </body>
 </html>
+
