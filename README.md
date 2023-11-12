@@ -1,45 +1,48 @@
 # BRDstudio.github.io
 Tomato clicker
-# Título de tu Proyecto
-#https://brdstudio.github.io/fond.html
+# Tomato Clicker
 ![Logo Personalizable](https://th.bing.com/th/id/OIG.v20oaf1JjcVfvpuUSOHt?w=270&h=270&c=6&r=0&o=5&pid=ImgGn)
 
-Descripción corta de tu proyecto y su propósito.
+Tomato clicker un juego de BRDSTUDIO
 
 ## Contenido
 
-- [Requisitos](#requisitos)
-- [Instalación](#instalación)
-- [Uso](#uso)
-- [Personalización](#personalización)
-- [Contribución](#contribución)
-- [Licencia](#licencia)
+- [Pagina web](#Paginaweb)
+- [Plataformas](#Plataformas)
+- [Información tecnica](#INF.tecnica)
+- [Información del juego](#INF.juego)
+- [Trailer](#trailer)
+- [Sobre Nosotros](#BRDSTUDIO)
 
-## Requisitos
 
-Descripción de los requisitos necesarios para usar tu página web.
+## Paginaweb
+Este es el enlace a la pagina web de Tomato clicker.
+En ella se da más información.
+[Enlace](#https://brdstudio.github.io/fond.html)
+## Plataformas
 
-## Instalación
+Estara disponible para pc y android.
 
-Instrucciones para instalar o ejecutar tu página web, si es necesario.
+## INF.tecnica
 
-## Uso
+-Esta desarrollado en godot 4 por Bruno(BRD).
+-Duración aproximada de 1h-1h 30min.
+-Un solo jugador.
+Fecha de lanzamiento 10 de diciembre
 
-Instrucciones sobre cómo utilizar tu página web.
+## INF.juego
 
-## Personalización
-
-Puedes personalizar la página web modificando los siguientes elementos:
+Tomato Clicker es un juego sobre un granjero el cual quire cosechar el mejor tomate del mundo para ello precisara dar 100000clicks y se ayudara de disintas herramientas
 
 - **Logo**: Sustituye el logo personalizable con el tuyo propio. Asegúrate de proporcionar la URL correcta de tu logo en la sección principal.
 
-## Contribución
+## Trailer
 
-Explica cómo otros pueden contribuir a tu proyecto. Por ejemplo, cómo pueden informar errores, enviar solicitudes de extracción, etc.
+Este es el trailer de Tomato clicker:
+[Enlace trailer](#https://www.youtube.com/embed/SRcCJQAwLKU)
 
-## Licencia
-
-Este proyecto está bajo la Licencia [Nombre de la Licencia]. Ver el archivo `LICENSE` para obtener más detalles.
+##BRDSTUDIO
+BRDSTUDIO es el estudio detrás del desarrollo de Tomato Clicker.
 
 ---
 
