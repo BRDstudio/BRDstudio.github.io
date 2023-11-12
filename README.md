@@ -18,7 +18,7 @@ Tomato clicker un juego de BRDSTUDIO
 ## Paginaweb
 Este es el enlace a la pagina web de Tomato clicker.
 En ella se da más información.
-[Enlace](#https://brdstudio.github.io/fond.html)
+[Enlace](https://brdstudio.github.io/fond.html)
 ## Plataformas
 
 Estara disponible para pc y android.
@@ -34,12 +34,12 @@ Fecha de lanzamiento 10 de diciembre
 
 Tomato Clicker es un juego sobre un granjero el cual quire cosechar el mejor tomate del mundo para ello precisara dar 100000clicks y se ayudara de disintas herramientas
 
-- **Logo**: Sustituye el logo personalizable con el tuyo propio. Asegúrate de proporcionar la URL correcta de tu logo en la sección principal.
+
 
 ## Trailer
 
 Este es el trailer de Tomato clicker:
-[Enlace trailer](#https://www.youtube.com/embed/SRcCJQAwLKU)
+[Enlace trailer](https://www.youtube.com/embed/SRcCJQAwLKU)
 
 ## BRDSTUDIO
 BRDSTUDIO es el estudio detrás del desarrollo de Tomato Clicker.
