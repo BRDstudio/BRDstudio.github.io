@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Ideas Aleatorias</title>
+    <link rel="icon" href="https://img.freepik.com/vector-premium/ilustracion-vector-luz-bombilla_516670-384.jpg?w=2000" type="image/png">
+    <style>
+        
+       body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url('https://coworkingfy.com/wp-content/uploads/2020/01/grupo-personas-aportando-ideas-reunion.jpg'); /* Reemplaza con la URL de tu imagen de fondo */
+            background-size: cover;
+            background-position: cover;
+            
+        }
+
+        #idea-container {
+            border: 2px solid #3498db;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #generate-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #generate-button:hover {
+            background-color: #2980b9;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        #bulb {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <table>
+        <h1 style="backdrop-filter: blur(1rem) ; margin-left: 400px; margin-right: 400px; padding-top: 10px; padding-bottom: 10px ;background-color: #3498db62;color: white; border-radius: 10px;">Generador de Ideas Aleatorias</h1>
+    </table>
+    <div id="idea-container">
+        <h2>Ideas Creativas:</h2>
+        <ul id="creative-ideas"></ul>
+    </div>
+
+    <button id="generate-button" onclick="generateIdeas()">Generar Idea</button>
+
+    <script>
+        const ideas = [
+        "Escribe una carta a tu yo del futuro.",
+            "Crea una obra de arte inspirada en la música.",
+            "Inventa un nuevo juego de mesa para toda la familia.",
+            "Imagina un día en la vida de un explorador del espacio.",
+            "Diseña una aplicación para hacer el día a día más fácil.",
+            "Escribe un poema sobre el poder de la imaginación.",
+            "Crea una receta de postre con ingredientes inusuales.",
+            "Dibuja un retrato abstracto de tus emociones actuales.",
+            "Desarrolla un logo para una marca de moda sostenible.",
+            "Inventa una historia sobre un mundo donde los animales hablan.",
+            "Diseña una tarjeta de felicitación para un evento especial.",
+            "Crea una playlist que represente tu estado de ánimo actual.",
+            "Escribe una historia corta sobre un día en una ciudad futurista.",
+            "Imagina un nuevo método de transporte para el futuro.",
+            "Dibuja un paisaje que refleje la paz interior.",
+            "Inventa un superhéroe con habilidades únicas.",
+            "Crea una caricatura de tu versión animada.",
+            "Escribe un diálogo entre dos personajes opuestos.",
+            "Diseña un juego de cartas con reglas originales.",
+            "Inventa una nueva palabra y define su significado.",
+            "Imagina una conversación con tu yo del pasado.",
+            "Crea un anuncio publicitario para un producto imaginario.",
+            "Dibuja un collage que represente tus sueños y aspiraciones.",
+            "Escribe una canción sobre la importancia de la amistad.",
+            "Diseña un tatuaje simbólico con un significado personal.",
+            "Inventa un nuevo sabor de helado y describe sus ingredientes.",
+            "Crea un cómic que cuente una historia de ciencia ficción.",
+            "Escribe un monólogo para un personaje de película.",
+            "Diseña un logotipo para una cafetería acogedora.",
+            "Imagina un día perfecto en un lugar paradisíaco.",
+            "Inventa una máquina que resuelva problemas cotidianos.",
+            "Escribe un haiku que capture la esencia de la naturaleza.",
+            "Crea una escultura con materiales reciclados.",
+            "Dibuja un mapa de un lugar mágico e inexplorado.",
+            "Inventa un juego de palabras y su significado oculto.",
+            "Escribe una carta de amor desde el punto de vista de un extraterrestre.",
+            "Diseña un póster para un festival de música imaginario.",
+            "Imagina un mundo donde las plantas tienen emociones.",
+            "Crea una receta de ensalada con ingredientes sorprendentes.",
+            "Escribe una historia sobre un encuentro con un ser misterioso.",
+            "Dibuja un autorretrato en un estilo artístico único.",
+            "Inventa un nuevo deporte y describe sus reglas.",
+            "Diseña una portada de libro para una novela de aventuras.",
+            "Imagina un día en la vida de un detective en el siglo XXI.",
+            "Escribe una canción sobre la importancia del respeto.",
+            "Crea una instalación artística que refleje el paso del tiempo.",
+            "Inventa un dispositivo para facilitar la vida en la cocina.",
+            "Diseña un logotipo para una organización benéfica.",
+            "Imagina un nuevo color y describe su apariencia.",
+            "Escribe un poema inspirado en el amanecer.",
+            "Dibuja un patrón inspirado en la naturaleza.",
+            "Inventa una historia sobre una isla misteriosa.",
+            "Crea una receta de cóctel con sabores exóticos.",
+            "Escribe un cuento corto sobre un encuentro inesperado.",
+            "Diseña una etiqueta para un producto de belleza.",
+            "Imagina un mundo donde las plantas tienen emociones.",
+            "Crea una receta de ensalada con ingredientes sorprendentes.",
+            "Escribe una historia sobre un encuentro con un ser misterioso.",
+            "Dibuja un autorretrato en un estilo artístico único.",
+            "Inventa un nuevo deporte y describe sus reglas.",
+            "Diseña una portada de libro para una novela de aventuras.",
+            "Imagina un día en la vida de un detective en el siglo XXI.",
+            "Escribe una canción sobre la importancia del respeto.",
+            "Crea una instalación artística que refleje el paso del tiempo.",
+            "Inventa un dispositivo para facilitar la vida en la cocina.",
+            "Diseña un logotipo para una organización benéfica.",
+            "Imagina un nuevo color y describe su apariencia.",
+            "Escribe un poema inspirado en el amanecer.",
+            "Dibuja un patrón inspirado en la naturaleza.",
+            "Inventa una historia sobre una isla misteriosa.",
+            "Crea una receta de cóctel con sabores exóticos.",
+            "Escribe un cuento corto sobre un encuentro inesperado.",
+            "Diseña una etiqueta para un producto de belleza.",
+            "Imagina un día en la vida de un científico loco.",
+            "Crea una escena de película en la que los objetos cobran vida.",
+            "Escribe una lista de reproducción para un viaje por carretera épico.",
+            "Diseña un logotipo para una empresa de exploración espacial.",
+            "Imagina una sociedad donde la tecnología sea cosa del pasado.",
+            "Crea una receta de cena romántica para dos personas.",
+            "Escribe una carta de agradecimiento a alguien que te inspira.",
+            "Dibuja un mapa del tesoro con pistas y acertijos.",
+            "Inventa un dispositivo para comunicarse con animales.",
+            "Diseña una etiqueta para un producto de bienestar emocional.",
+            "Imagina un día en la vida de un mago moderno.",
+            "Crea una obra de arte que represente la diversidad cultural.",
+            "Escribe una canción que celebre la perseverancia.",
+            "Diseña una portada de revista para un tema futurista.",
+            "Imagina un mundo donde las estaciones del año estén desordenadas.",
+            "Crea una receta de desayuno energizante y saludable.",
+            "Escribe una historia de misterio con un giro sorprendente.",
+            "Dibuja un patrón inspirado en la arquitectura moderna.",
+            "Inventa un nuevo juego de cartas para desafiar la mente.",
+            "Diseña un logotipo para una marca de productos ecológicos.",
+            "Imagina un día en la vida de un inventor en el siglo XIX.",
+            "Crea una escena de ciencia ficción en el fondo del océano.",
+            "Escribe una lista de cosas que te hacen feliz y agradecido.",
+            "Dibuja un retrato de un personaje de un cuento de hadas moderno.",
+            "Inventa un nuevo instrumento musical y describe su sonido.",
+            "Diseña una etiqueta para un producto de relajación nocturna.",
+            "Imagina un día en el mundo de la realidad virtual.",
+            "Crea una receta de merienda saludable y deliciosa.",
+        ];
+
+        function getRandomIdea() {
+            const randomIndex = Math.floor(Math.random() * ideas.length);
+            return ideas[randomIndex];
+        }
+
+        function generateIdeas() {
+            const ideasContainer = document.getElementById('creative-ideas');
+            ideasContainer.innerHTML = '';
+
+            const numIdeas = 1; // Cambiado a 1 para mostrar una idea a la vez
+
+            for (let i = 0; i < numIdeas; i++) {
+                const idea = getRandomIdea();
+                const listItem = document.createElement('li');
+                listItem.textContent = idea;
+                ideasContainer.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>

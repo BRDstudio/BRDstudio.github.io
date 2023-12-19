@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DailyTasks</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3789/3789946.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        section {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .high-priority {
+            background-color: #ffcccc;
+        }
+
+        .medium-priority {
+            background-color: #ffe066;
+        }
+
+        .low-priority {
+            background-color: #c9ffc9;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>DailyTasks</h1>
+        <button id="login-button" onclick="showLoginForm()">Iniciar Sesión</button>
+        <button id="register-button" onclick="showRegisterForm()">Registrarse</button>
+        <button id="logout-button" style="display: none;" onclick="logout()">Cerrar Sesión</button>
+    </header>
+
+    <!-- Formulario de inicio de sesión -->
+    <section id="login-form" style="display: none;">
+        <h2>Iniciar Sesión</h2>
+        <label for="login-username">Usuario:</label>
+        <input type="text" id="login-username" placeholder="Tu usuario">
+        <label for="login-password">Contraseña:</label>
+        <input type="password" id="login-password" placeholder="Tu contraseña">
+        <button onclick="login()">Iniciar Sesión</button>
+    </section>
+
+    <!-- Formulario de registro -->
+    <section id="register-form" style="display: none;">
+        <h2>Registrarse</h2>
+        <label for="register-username">Usuario:</label>
+        <input type="text" id="register-username" placeholder="Elige un usuario">
+        <label for="register-password">Contraseña:</label>
+        <input type="password" id="register-password" placeholder="Elige una contraseña">
+        <button onclick="register()">Registrarse</button>
+    </section>
+    <h2 style="color: black; margin-left: 20px; font-size: xx-large; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">En esta pagina podras organizar tus tareas y ver cuales son mas importantes, ademas puedes acceder desde donde quieras y cuando quieras</h2>
+
+    <!-- Lista de Tareas -->
+    <section id="task-list" style="display: none;">
+        <h2>Tus Tareas</h2>
+        <ul id="tasks"></ul>
+        <label for="new-task">Nueva Tarea:</label>
+        <input type="text" id="new-task" placeholder="Escribe tu nueva tarea">
+        <label for="priority">Prioridad:</label>
+        <select id="priority">
+            <option value="low">Baja</option>
+            <option value="medium">Media</option>
+            <option value="high">Alta</option>
+        </select>
+        <button onclick="addTask()">Agregar Tarea</button>
+    </section>
+
+    <footer>
+        <p style="margin-left: 20px;">&copy; 2023 DailyTasks. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        var isLoggedIn = false; // Variable para rastrear el estado de inicio de sesión
+        var currentUser = ''; // Variable para almacenar el usuario actual
+
+        function showLoginForm() {
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('register-form').style.display = 'none';
+        }
+
+        function showRegisterForm() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+        }
+
+        function toggleLogoutButton() {
+            var logoutButton = document.getElementById('logout-button');
+            logoutButton.style.display = isLoggedIn ? 'inline-block' : 'none';
+        }
+
+        function login() {
+    var username = document.getElementById('login-username').value;
+    var password = document.getElementById('login-password').value;
+
+    // Verificar si el usuario existe en el almacenamiento local
+    if (localStorage.getItem(username) !== null) {
+        var storedUserObject = JSON.parse(localStorage.getItem(username));
+
+        // Verificar la contraseña
+        if (password === storedUserObject.password) {
+            alert('Inicio de sesión exitoso!');
+            isLoggedIn = true;
+            currentUser = username;
+            showTasks();
+        } else {
+            alert('Credenciales incorrectas. Intenta de nuevo.');
+        }
+    } else {
+        alert('Usuario no encontrado. Regístrate antes de iniciar sesión.');
+    }
+}
+
+
+        function register() {
+            var username = document.getElementById('register-username').value;
+            var password = document.getElementById('register-password').value;
+
+            // Crear un objeto de usuario para almacenar sus tareas
+            var userObject = {
+                username: username,
+                password: password,
+                tasks: []
+            };
+
+            // Almacenar el objeto de usuario en el almacenamiento local
+            localStorage.setItem(username, JSON.stringify(userObject));
+
+            alert('Registro exitoso. Ahora puedes iniciar sesión.');
+            showLoginForm();
+        }
+
+        function showTasks() {
+            document.getElementById('task-list').style.display = 'block';
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-button').style.display = 'none';
+            document.getElementById('register-button').style.display = 'none';
+            toggleLogoutButton();
+            loadTasks();
+        }
+
+        function logout() {
+            isLoggedIn = false;
+            currentUser = '';
+            document.getElementById('task-list').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-button').style.display = 'inline-block';
+            document.getElementById('register-button').style.display = 'inline-block';
+            toggleLogoutButton();
+        }
+
+        function loadTasks() {
+            // Cargar tareas del usuario actual desde el almacenamiento local
+            var userObject = JSON.parse(localStorage.getItem(currentUser)) || { tasks: [] };
+            var tasksList = document.getElementById('tasks');
+
+            // Limpiar la lista antes de cargar las tareas
+            tasksList.innerHTML = '';
+
+            userObject.tasks.forEach(function (task) {
+                addTaskToList(task);
+            });
+        }
+
+        function addTaskToList(task) {
+            var tasksList = document.getElementById('tasks');
+            var li = document.createElement('li');
+            li.textContent = task.text + ' - Prioridad: ' + task.priority;
+            li.className = getPriorityClass(task.priority);
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Eliminar';
+            deleteButton.onclick = function () {
+                deleteTask(task);
+            };
+            li.appendChild(deleteButton);
+            tasksList.appendChild(li);
+        }
+
+        function addTask() {
+            var newTaskText = document.getElementById('new-task').value;
+            var priority = document.getElementById('priority').value;
+
+            if (newTaskText.trim() === '') {
+                alert('Por favor, ingresa una tarea válida.');
+                return;
+            }
+
+            var newTask = {
+                text: newTaskText,
+                priority: priority
+            };
+
+            // Obtener el objeto de usuario actual del almacenamiento local
+            var userObject = JSON.parse(localStorage.getItem(currentUser)) || { tasks: [] };
+
+            // Agregar la nueva tarea al array de tareas del usuario
+            userObject.tasks.push(newTask);
+
+            // Almacenar el objeto de usuario actualizado en el almacenamiento local
+            localStorage.setItem(currentUser, JSON.stringify(userObject));
+
+            // Limpiar el campo de nueva tarea
+            document.getElementById('new-task').value = '';
+
+            // Recargar la lista de tareas
+            loadTasks();
+        }
+
+        function deleteTask(task) {
+            // Obtener el objeto de usuario actual del almacenamiento local
+            var userObject = JSON.parse(localStorage.getItem(currentUser)) || { tasks: [] };
+
+            // Filtrar las tareas, excluyendo la tarea que se va a eliminar
+            userObject.tasks = userObject.tasks.filter(function (t) {
+                return !(t.text === task.text && t.priority === task.priority);
+            });
+
+            // Almacenar el objeto de usuario actualizado en el almacenamiento local
+            localStorage.setItem(currentUser, JSON.stringify(userObject));
+
+            // Recargar la lista de tareas
+            loadTasks();
+        }
+
+        function getPriorityClass(priority) {
+            switch (priority) {
+                case 'low':
+                    return 'low-priority';
+                case 'medium':
+                    return 'medium-priority';
+                case 'high':
+                    return 'high-priority';
+                default:
+                    return '';
+            }
+        }
+    </script>
+
+
+</body>
+</html>
