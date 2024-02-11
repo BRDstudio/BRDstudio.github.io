@@ -34,14 +34,14 @@
 <body style="background: linear-gradient(150deg, blue,black);">
     <div class="Formulario">
         <h1>Registrarse</h1>
-        <form method="post" action="registro_usuario.php">
+        <form method="post" action="registro_usuario.php" id="registroForm">
           <div class="nombre">
-            <input type="text" required name="Nombre_de_usuario">
-            <label>Nombre de usuario</label>
+            <input type="text" id="username" name="username" required>
+            <label for="username">Nombre de usuario</label>
           </div>
           <div class="nombre">
-            <input type="password" required name="contrasena">
-            <label>Contraseña</label>
+            <input type="password" id="password" name="password" required>
+            <label for="password">Contraseña</label>
           </div>
           <Input type="submit" value="Registrarse"></Input>
           <div class="registrarse">
@@ -51,7 +51,32 @@
         </form>
       
       </div>
-      </body>
-      </html>
+
+    <script>
+        document.getElementById("registroForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Obtener usuarios existentes de localStorage
+            var users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Verificar si el usuario ya está registrado
+            var userExists = users.some(function(user) {
+                return user.username === username;
+            });
+
+            if (userExists) {
+                alert("El usuario ya existe.");
+            } else {
+                // Agregar el nuevo usuario
+                users.push({ username: username, password: password });
+                localStorage.setItem("users", JSON.stringify(users));
+                alert("Registro exitoso.");
+                window.location.href = "Inicio de sesión.html"; // Redirigir al usuario a la página de inicio de sesión
+            }
+        });
+    </script>
+    
 </body>
 </html>

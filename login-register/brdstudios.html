@@ -58,9 +58,34 @@
     <li><a class="nvas" href="#opcion1" style="color: rgb(255, 255, 255);">Nuestros juegos</a></li>
     <li><a class="nvas" href="#opcion2" style="color: white;">Sobre nosotros</a></li>
     <li><a class="nvas" href="Inicio de sesión.html" style="color: white;">Iniciar sesión</a></li>
-    <!-- Puedes agregar más opciones según sea necesario -->
+    
   </ul>
 </nav>
+
+
+<div class="contenedor">
+  <label for="input-imagen">
+    <img src="mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png" alt="Imagen Personalizable" id="imagen-personalizable" class="imagen-personalizable">
+  </label>
+  <input type="file" id="input-imagen" accept="image/*" onchange="cambiarImagen(event)">
+  
+</div>
+
+<script>
+  function cambiarImagen(event) {
+    var archivo = event.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+      document.getElementById('imagen-personalizable').src = event.target.result;
+    }
+
+    reader.readAsDataURL(archivo);
+  }
+  
+
+  
+</script>
 <style>
   @media (max-width: 767px){
     .ordenador{
@@ -72,6 +97,28 @@
       display: none;
     }
 
+  }
+  .contenedor {
+    width: 100px;
+    height: 100px; /* Establece el alto de la ventana visible */
+  }
+
+  .imagen-personalizable {
+    border-radius: 75px;
+    position: absolute;
+    top: 50px; /* Ajusta la distancia superior según tu preferencia */
+    right: 100px; /* Ajusta la distancia derecha según tu preferencia */
+    max-width: 150px; /* Ajusta el ancho máximo de la imagen según tu preferencia */
+    height: auto; /* Para mantener la proporción de la imagen */
+    cursor: pointer; /* Cambia el cursor al pasar por encima de la imagen */
+  }
+  .oculto{
+    display: none;
+  }
+
+  /* Oculta el input file */
+  #input-imagen {
+    display: none;
   }
   .titj {
       font-family: "Workbench", sans-serif;
@@ -217,8 +264,33 @@
           <p>Texto descriptivo del Juego 3.</p>
       </div>
       <div class="juego-imagen">
-          <img src="ruta/a/imagen3.jpg" alt="Imagen del Juego 3">
+          <img src="" alt="Imagen del Juego 3">
       </div>
   </div>
 </section>
+<script type="module">
+  
+  
+  import {Login} from '/login.js';
+
+  print(Login);
+
+  if (Login == 1) {
+      
+      var elementos = document.querySelectorAll(".contenedor");
+
+      elementos.forEach(function(elemento) {
+              elemento.classList.remove("oculto");
+          });
+  }else{
+    var elementos = document.querySelectorAll(".contenedor");
+
+    elementos.forEach(function(elemento) {
+    elemento.classList.add("oculto");
+    });
+    
+  }
+ 
+</script>
+
 </body>
