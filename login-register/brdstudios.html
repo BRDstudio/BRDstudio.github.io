@@ -62,30 +62,88 @@
   </ul>
 </nav>
 
+<style>
+  .contenedor {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Establece el alto de la ventana visible */
+  }
 
+  .imagen-personalizable {
+    border-radius: 75px;
+    position: absolute;
+    top: 50px; /* Ajusta la distancia superior según tu preferencia */
+    right: 100px; /* Ajusta la distancia derecha según tu preferencia */
+    max-width: 150px; /* Ajusta el ancho máximo de la imagen según tu preferencia */
+    height: auto; /* Para mantener la proporción de la imagen */
+    cursor: pointer; /* Cambia el cursor al pasar por encima de la imagen */
+  }
+
+  /* Oculta el input file */
+  #input-imagen {
+    display: none;
+  }
+</style>
+</head>
+<body>
 <div class="contenedor">
   <label for="input-imagen">
     <img src="mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png" alt="Imagen Personalizable" id="imagen-personalizable" class="imagen-personalizable">
   </label>
   <input type="file" id="input-imagen" accept="image/*" onchange="cambiarImagen(event)">
-  
 </div>
 
 <script>
+  // Verifica si hay una imagen guardada en localStorage
+  var imagenGuardada = localStorage.getItem('imagenPersonalizable');
+
+  // Si hay una imagen guardada, la muestra
+  if (imagenGuardada) {
+    document.getElementById('imagen-personalizable').src = imagenGuardada;
+  }
+
   function cambiarImagen(event) {
     var archivo = event.target.files[0];
     var reader = new FileReader();
 
     reader.onload = function(event) {
+      // Muestra la imagen seleccionada
       document.getElementById('imagen-personalizable').src = event.target.result;
+
+      // Guarda la imagen seleccionada en localStorage
+      localStorage.setItem('imagenPersonalizable', event.target.result);
     }
 
     reader.readAsDataURL(archivo);
   }
-  
-
-  
 </script>
+<script>
+  function guardarNombre() {
+      var nombreActual = localStorage.getItem('nombreUsuario');
+      var nombreNuevo = document.getElementById('nombre').value;
+      if (nombreNuevo !== nombreActual) {
+          localStorage.setItem('nombreUsuario', nombreNuevo);
+      }
+  }
+  
+  window.onload = function() {
+      var nombreGuardado = localStorage.getItem('nombreUsuario');
+      if (nombreGuardado) {
+          document.getElementById('nombre').value = nombreGuardado;
+      }
+  }
+</script>
+
+
+<div class="nomh">
+  <div id="formuliario">
+    <h2 class="but3"></h2>
+    <input type="text" id="nombre" placeholder="Nombre" class="inpi">
+    <div style="position: absolute; left: 60px;">
+      <button onclick="guardarNombre()" class="guit">Guardar</button>
+    </div>
+  </div>
+  </div>
 <style>
   @media (max-width: 767px){
     .ordenador{
@@ -98,23 +156,59 @@
     }
 
   }
-  .contenedor {
-    width: 100px;
-    height: 100px; /* Establece el alto de la ventana visible */
-  }
 
-  .imagen-personalizable {
-    border-radius: 75px;
-    position: absolute;
-    top: 50px; /* Ajusta la distancia superior según tu preferencia */
-    right: 100px; /* Ajusta la distancia derecha según tu preferencia */
-    max-width: 150px; /* Ajusta el ancho máximo de la imagen según tu preferencia */
-    height: auto; /* Para mantener la proporción de la imagen */
-    cursor: pointer; /* Cambia el cursor al pasar por encima de la imagen */
+  .nomh {
+      font-family: "Workbench", sans-serif;
+      position: absolute;
+      top: 190px;
+      display: flex;
+      right: 70px;
+
   }
-  .oculto{
-    display: none;
+  
+  #formuliario {
+      background-color: #00000000;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+  
+  .but3 {
+    margin-top: 0;
+  }
+  
+  .inpi[type="text"] {
+    
+      width: 200px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #cccccc00;
+      border-radius: 5px;
+      font-family: "Pixelify Sans", sans-serif;
+      background-color: black;
+      color: white;
+      font-size: 30px;
+      text-align: center;
+  }
+  
+  .guit{
+      font-family: "Pixelify Sans", sans-serif;
+      padding: 10px 10px;
+      background-color: #0011fa;
+      color: #fffdfd;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      
+  }
+  
+  .guit :hover{
+      background-color: #28282c;
+  }
+  
+
+
+ 
 
   /* Oculta el input file */
   #input-imagen {
@@ -268,29 +362,5 @@
       </div>
   </div>
 </section>
-<script type="module">
-  
-  
-  import {Login} from '/login.js';
-
-  print(Login);
-
-  if (Login == 1) {
-      
-      var elementos = document.querySelectorAll(".contenedor");
-
-      elementos.forEach(function(elemento) {
-              elemento.classList.remove("oculto");
-          });
-  }else{
-    var elementos = document.querySelectorAll(".contenedor");
-
-    elementos.forEach(function(elemento) {
-    elemento.classList.add("oculto");
-    });
-    
-  }
- 
-</script>
 
 </body>
