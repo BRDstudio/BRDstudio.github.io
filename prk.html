@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz de Inteligencia Artificial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ai-avatar {
+            width: 100px;
+            height: 100px;
+            background-color: #007bff;
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+        
+        .chat-window {
+            padding: 20px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 70%;
+        }
+        
+        .received {
+            background-color: #f2f2f2;
+            align-self: flex-start;
+        }
+        
+        .sent {
+            background-color: #007bff;
+            color: #fff;
+            align-self: flex-end;
+        }
+        
+        .message-input {
+            width: calc(100% - 20px);
+            margin: 0 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ai-avatar"></div>
+        <div class="chat-window" id="chat-window">
+            <div class="chat">
+                <div class="message received">Hola, ¿en qué puedo ayudarte?</div>
+            </div>
+        </div>
+        <input type="text" class="message-input" id="user-input" placeholder="Escribe tu mensaje...">
+    </div>
+
+    <script>
+        document.getElementById('user-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            var userInput = document.getElementById('user-input').value;
+            if (userInput.trim() !== '') {
+                addMessage(userInput, 'sent');
+                document.getElementById('user-input').value = '';
+                // Simulación de respuesta de la inteligencia artificial
+                setTimeout(function () {
+                    var response = getResponse(userInput);
+                    addMessage(response, 'received');
+                }, 500);
+            }
+        }
+
+        function addMessage(message, type) {
+            var chatWindow = document.getElementById('chat-window');
+            var newMessage = document.createElement('div');
+            newMessage.classList.add('message', type);
+            newMessage.innerText = message;
+            chatWindow.appendChild(newMessage);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        function getResponse(input) {
+            // Esta es una respuesta de ejemplo, puedes personalizarla según tus necesidades
+            var responses = {
+                'Hola': '¡Hola! ¿En qué puedo ayudarte?',
+                '¿Qué es la inteligencia artificial?': 'La inteligencia artificial (IA) es la simulación de procesos de inteligencia humana mediante máquinas, especialmente sistemas informáticos.',
+                '¿Cómo funciona la IA?': 'La IA funciona mediante algoritmos y modelos matemáticos que procesan grandes cantidades de datos para aprender patrones y realizar predicciones o tareas específicas.',
+                'Gracias': '¡De nada! Si tienes más preguntas, no dudes en preguntar.'
+            };
+            return responses[input] || 'Lo siento, no entiendo tu pregunta.';
+        }
+    </script>
+</body>
+</html>
