@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Unidades</title>
+    <!-- Agrega el enlace al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #unit-converter {
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            display: none;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Conversor de Unidades</h1>
+    </header>
+
+    <main>
+        <div id="unit-converter" class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="quantity">Cantidad:</label>
+                    <input type="text" id="quantity" placeholder="Ingrese la cantidad" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="from-unit">De:</label>
+                    <select id="from-unit" class="form-control" onchange="updateToUnits()">
+                        <!-- Opciones de unidades -->
+                        <option value="meter">Metro</option>
+                        <option value="kilogram">Kilogramo</option>
+                        <option value="celsius">Celsius</option>
+                        <option value="liter">Litro</option>
+                        <option value="second">Segundo</option>
+                        <option value="meter-per-second">Metro por segundo</option>
+                        <option value="pascal">Pascal</option>
+                        <option value="joule">Joule</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="to-unit">A:</label>
+                    <select id="to-unit" class="form-control">
+                        <!-- Las opciones se actualizarán dinámicamente -->
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button onclick="convertUnits()" class="btn btn-primary btn-block">Convertir</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="result"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Conversor de Unidades. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Agrega el enlace al archivo JavaScript de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Al cargar la página, establece "metro" como la unidad por defecto y carga las opciones de unidades
+        document.addEventListener('DOMContentLoaded', function() {
+            const fromUnitDropdown = document.getElementById('from-unit');
+            const toUnitDropdown = document.getElementById('to-unit');
+
+           
+            addOptions(toUnitDropdown, ['inch', 'kilometer', 'mile', 'foot', 'yard', 'pound', 'gram', 'ounce', 'fahrenheit', 'kelvin', 'gallon', 'milliliter', 'quart', 'minute', 'hour', 'kilometer-per-hour', 'mile-per-hour', 'kilopascal', 'bar', 'calorie', 'kilocalorie'], ['Pulgada', 'Kilómetro', 'Milla', 'Pie', 'Yarda', 'Libra', 'Gramo', 'Onza', 'Fahrenheit', 'Kelvin', 'Galón', 'Mililitro', 'Cuarto', 'Minuto', 'Hora', 'Kilómetro por hora', 'Milla por hora', 'Kilopascal', 'Bar', 'Caloría', 'Kilocaloría']);
+            
+            updateToUnits();
+        });
+
+        function updateToUnits() {
+            const fromUnit = document.getElementById('from-unit').value;
+            const toUnitDropdown = document.getElementById('to-unit');
+            
+            // Limpia las opciones actuales
+            toUnitDropdown.innerHTML = '';
+
+            // Añade opciones compatibles según la selección de la magnitud "De:"
+            switch (fromUnit) {
+                case 'meter':
+                    addOptions(toUnitDropdown, ['inch', 'kilometer', 'mile', 'foot', 'yard'], ['Pulgada', 'Kilómetro', 'Milla', 'Pie', 'Yarda']);
+                    break;
+                case 'kilogram':
+                    addOptions(toUnitDropdown, ['pound', 'gram', 'ounce'], ['Libra', 'Gramo', 'Onza']);
+                    break;
+                case 'celsius':
+                    addOptions(toUnitDropdown, ['fahrenheit', 'kelvin'], ['Fahrenheit', 'Kelvin']);
+                    break;
+                case 'liter':
+                    addOptions(toUnitDropdown, ['gallon', 'milliliter', 'quart'], ['Galón', 'Mililitro', 'Cuarto']);
+                    break;
+                case 'second':
+                    addOptions(toUnitDropdown, ['minute', 'hour'], ['Minuto', 'Hora']);
+                    break;
+                case 'meter-per-second':
+                    addOptions(toUnitDropdown, ['kilometer-per-hour', 'mile-per-hour'], ['Kilómetro por hora', 'Milla por hora']);
+                    break;
+                case 'pascal':
+                    addOptions(toUnitDropdown, ['kilopascal', 'bar'], ['Kilopascal', 'Bar']);
+                    break;
+                case 'joule':
+                    addOptions(toUnitDropdown, ['calorie', 'kilocalorie'], ['Caloría', 'Kilocaloría']);
+                    break;
+                // Añade más casos según sea necesario
+            }
+        }
+
+        function addOptions(selectElement, values, labels) {
+            for (let i = 0; i < values.length; i++) {
+                const option = document.createElement('option');
+                option.value = values[i];
+                option.text = labels[i];
+                selectElement.add(option);
+            }
+        }
+
+        function convertUnits() {
+            const quantity = parseFloat(document.getElementById('quantity').value);
+            const fromUnit = document.getElementById('from-unit').value;
+            const toUnit = document.getElementById('to-unit').value;
+
+            let result;
+
+            switch (`${fromUnit}-${toUnit}`) {
+                case 'meter-inch':
+                    result = quantity * 39.37;
+                    break;
+                case 'meter-kilometer':
+                    result = quantity / 1000;
+                    break;
+                case 'meter-mile':
+                    result = quantity / 1609.34;
+                    break;
+                case 'meter-foot':
+                    result = quantity * 3.28084;
+                    break;
+                case 'meter-yard':
+                    result = quantity * 1.09361;
+                    break;
+                case 'kilogram-pound':
+                    result = quantity * 2.20462;
+                    break;
+                case 'kilogram-gram':
+                    result = quantity * 1000;
+                    break;
+                case 'kilogram-ounce':
+                    result = quantity * 35.27396;
+                    break;
+                case 'celsius-fahrenheit':
+                    result = (quantity * 9/5) + 32;
+                    break;
+                case 'celsius-kelvin':
+                    result = quantity + 273.15;
+                    break;
+                case 'liter-gallon':
+                    result = quantity * 0.264172;
+                    break;
+                case 'liter-milliliter':
+                    result = quantity * 1000;
+                    break;
+                case 'liter-quart':
+                    result = quantity * 1.05669;
+                    break;
+                case 'second-minute':
+                    result = quantity / 60;
+                    break;
+                case 'second-hour':
+                    result = quantity / 3600;
+                    break;
+                case 'meter-per-second-kilometer-per-hour':
+                    result = quantity * 3.6;
+                    break;
+                case 'meter-per-second-mile-per-hour':
+                    result = quantity * 2.23694;
+                    break;
+                case 'pascal-kilopascal':
+                    result = quantity / 1000;
+                    break;
+                case 'pascal-bar':
+                    result = quantity * 0.00001;
+                    break;
+                case 'joule-calorie':
+                    result = quantity * 0.239006;
+                    break;
+                case 'joule-kilocalorie':
+                    result = quantity * 0.000239006;
+                    break;
+                default:
+                    result = 'Conversión no soportada';
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<p>Resultado: ${result.toFixed(2)} ${document.getElementById('to-unit').selectedOptions[0].text}</p>`;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
