@@ -58,12 +58,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
 </head>
-<body style="background-color: rgb(0, 0, 0);">
- <img src="image.png" style="border-radius: 150px;width: 200px;  position: absolute; top:50px; left: 850px;">
+<body style="background-color: rgb(0, 0, 0);" >
+ <img class="brdstttt"src="image.png" style="border-radius: 150px;width: 200px;  position: absolute; top:50px; left: 850px;">
 
-  <h1 style="position: absolute; top:250px;left: 800px; font-family:Kaushan Script, cursive; font-weight: 300;color: white;">¡Bienvenido a Brdstudio!</h1>
+  <h1 class="brdstttt" style="position: absolute; top:250px;left: 800px; font-family:Kaushan Script, cursive; font-weight: 300;color: white;">¡Bienvenido a Brdstudio!</h1>
+ 
+  <img class="brdsttttmov"src="image.png" style="border-radius: 150px;width: 200px;  position: absolute; top:400px; left: 200px;">
 
-<nav style="position: absolute;top: 400px;left: 350px;color: rgb(255, 255, 255);background-color: rgba(0, 0, 0, 0);">
+  <h1 class="brdsttttmov" style="position: absolute; top:600px;left: 130px; font-family:Kaushan Script, cursive; font-weight: 300;color: white;">¡Bienvenido a Brdstudio!</h1>
+
+<nav class="apart" style="position: absolute;top: 400px;left: 350px;color: rgb(255, 255, 255);background-color: rgba(0, 0, 0, 0);">
   <ul>
     <li><a class="nvas" href="#sec1" style="color: rgb(255, 255, 255);">Nuestros juegos</a></li>
     <li><a class="nvas" href="#sec2" style="color: white;">Sobre nosotros</a></li>
@@ -71,7 +75,14 @@
     
   </ul>
 </nav>
-
+<nav class="apartmov" style="position: absolute;top: 700px;left: 90px;color: rgb(255, 255, 255);background-color: rgba(0, 0, 0, 0);">
+  <ul>
+    <li><a class="nvas" href="#sec1" style="color: rgb(255, 255, 255);">Nuestros juegos</a></li>
+    <li><a class="nvas" href="#sec2" style="color: white;">Sobre nosotros</a></li>
+    <li><a class="nvas" href="Inicio de sesión.html" style="color: white;">Iniciar sesión</a></li>
+    
+  </ul>
+</nav>
 <style>
   .contenedor {
     position: relative;
@@ -167,6 +178,9 @@
   </div>
 <style>
   @media (max-width: 767px){
+    .apart{
+      display: none;
+    }
     .discord{
       display: none;
     }
@@ -176,10 +190,35 @@
     .pstor{
       display: none;
     }
-
-  
+    .brdstttt{
+      display: none;
+    }
+    .titj{
+      display: none;
+    }
+    .tom{
+      display: none;
+    }
+    .tratom{
+      display: none;
+    }
+    .car1{
+      display: none;
+    }
   }
   @media (min-width: 991px){
+    .tratomov{
+      display: none;
+    }
+    .tomov{
+      display: none;
+    }
+    .titjmov{
+      display: none;
+    }
+    .brdsttttmov{
+      display: none;
+    }
     .discordmov{
       display: none;
     }
@@ -190,6 +229,12 @@
       display: none;
     }
     .pst{
+      display: none;
+    }
+    .apartmov{
+      display: none;
+    }
+    .car1m{
       display: none;
     }
   }
@@ -256,6 +301,17 @@
       color: #ffffff;
       text-align: center;
       padding: 600px 30px 500px;
+      margin-top: 700px; /* Agregamos margen superior de 700px */
+  }
+  .titjmov {
+
+      font-family: "Workbench", sans-serif;
+      padding-top: 500px;
+      font-size: 64px;
+      background-color: #0000003b;
+      color: #ffffff;
+      text-align: center;
+      padding: 600px 70px 500px 170px;
       margin-top: 700px; /* Agregamos margen superior de 700px */
   }
   .lemon-regular {
@@ -391,6 +447,7 @@
 
 <body class="ordenador">
 <h1 class="titj" id="sec1">Nuestros Juegos</h1>
+<h1 class="titjmov" id="sec1">Nuestros Juegos</h1>
 <section style="background:#1d1d1d2a; "class= "tom">
   <div class="juego-info" >
       <div class="juego-texto" >
@@ -402,22 +459,50 @@
       </div>
   </div>
 </section>
-<h1 style="color: white;font-family: Caveat, cursive;padding-left: 100px; font-size: 60px;">
+<section style="background:#1d1d1d2a; "class= "tomov">
+
+  <div style="padding: 0px 20px;margin: 100px;text-align: center;">
+ 
+          <h2 style="color: white; font-family: Kenia, sans-serif;font-size: large;color: red;font-size: 100px;">TOMATO CLICKER</h2>
+          <img src="OIG.jpg" alt="Imagen del Juego 1" width="300px" style="border-radius: 55px;top: 1900px;">
+          <p style="font-family: Caveat, cursive;color: greenyellow; font-size: x-large;">En BRD STUDIO nos preparamos para el lanzamiento de nuestro proximo juego tomato clicker en la play store, que como indica su nombre trata de un clicker de un tomate en el cual la jugabilidad se basa en acabar de cosechar un tomate, para ello precisaremos de distintas herramientas que nos ayudaran en nuestra mision, dar 100000 clicks y conseguir por fin el ansiado tomate. El juego esta disponible en itch.io y en la plataforma movil google play, es completamente gratis y sin anuncios de ningun tipo.
+          </p>
+          <iframe class="tratomov"width="320" height="225" src="https://www.youtube.com/embed/SRcCJQAwLKU" title="Trailer Tomato Clicker" frameborder="0" style="border-radius: 50px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          
+          <a class="tratomov"href="https://brdstudio.itch.io/tomato-clicker" style="padding: 50px 350px 50px 50px;"></a>
+          <img class="tratomov"src="Itch_io.png" alt="" style=" width: 200px;position: absolute;left: 180px;top: 3750px;">
+  </div>
+  
+</section>
+<h1 style="color: white;font-family: Caveat, cursive;padding-left: 100px; font-size: 60px;" class="car1">
   Características: 
   <p style="padding-left: 50px; font-size: 50px;">-Un jugador</p>
   <p style="padding-left: 50px; font-size: 50px;">-Casual
  </p>
  <p style="padding-left: 50px; font-size: 50px;">
   -1h 30 min de duración aproximada
-</p>
-<p style="padding-left: 50px; font-size: 50px;">-Gratis</p>
-<p style="padding-left: 50px; font-size: 50px;">-Sin anuncios</p>
-<p style="padding-left: 50px; font-size: 50px;">-Sin conexión</p>
-<p style="padding-left: 50px; font-size: 50px;">-Todos los públicos</p>
+  </p>
+  <p style="padding-left: 50px; font-size: 50px;">-Gratis</p>
+  <p style="padding-left: 50px; font-size: 50px;">-Sin anuncios</p>
+  <p style="padding-left: 50px; font-size: 50px;">-Sin conexión</p>
+  <p style="padding-left: 50px; font-size: 50px;">-Todos los públicos</p>
 </h1>
-<iframe width="800" height="450" src="https://www.youtube.com/embed/SRcCJQAwLKU" title="Trailer Tomato Clicker" frameborder="0" style="position: absolute; top: 3100px;left: 1040px;border-radius: 50px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<img src="Itch_io.png" alt="" style="position: absolute;top: 3550px;left: 970px;padding: 100px 100px 100px 100px; width: 700px;">
-<a href="https://brdstudio.itch.io/tomato-clicker" style="position: absolute;top: 3680px;left: 1000px;padding: 100px 700px 100px 100px;"></a>
+<h1 style="color: white;font-family: Caveat, cursive;padding-left: 100px; font-size: 40px; text-align: center;" class="car1m" >
+  Características: 
+  <p style="padding-left: 50px; font-size:30px;">-Un jugador</p>
+  <p style="padding-left: 50px; font-size:30px;">-Casual
+ </p>
+ <p style="padding-left: 50px; font-size:30px;">
+  -1h 30 min de duración aproximada
+  </p>
+  <p style="padding-left: 50px; font-size: 30px;">-Gratis</p>
+  <p style="padding-left: 50px; font-size: 30px;">-Sin anuncios</p>
+  <p style="padding-left: 50px; font-size: 30px;">-Sin conexión</p>
+  <p style="padding-left: 50px; font-size: 30px;">-Todos los públicos</p>
+</h1>
+<iframe class="tratom" width="800" height="450" src="https://www.youtube.com/embed/SRcCJQAwLKU" title="Trailer Tomato Clicker" frameborder="0" style="position: absolute; top: 3100px;left: 1040px;border-radius: 50px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<img class="tratom" src="Itch_io.png" alt="" style="position: absolute;top: 3550px;left: 970px;padding: 100px 100px 100px 100px; width: 700px;">
+<a class="tratom"href="https://brdstudio.itch.io/tomato-clicker" style="position: absolute;top: 3680px;left: 1000px;padding: 100px 700px 100px 100px;"></a>
 <section style="background:#1d1d1d2a; "class= "lav">
 
   <div class="juego-info" >
@@ -526,7 +611,7 @@
   <div class="column">
       <h2>Nuestro estudio</h2>
       <p>Creado el 5 de agosto de 2023</p>
-      <p>Cuatro juegos, 2 en desarrollo y 2 ya salidos</p>
+      <p>Cuatro juegos, 1 en desarrollo y 3 ya salidos</p>
       <p>Juegos moviles y de Pc casuals</p>
       <p>Sede España</p>
       <p>Modelaje 3d en blender</p>
