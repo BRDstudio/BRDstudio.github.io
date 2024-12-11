@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión en Brdstudio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Kaushan+Script&family=Pacifico&family=Press+Start+2P&family=Rubik+Doodle+Shadow&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Kaushan+Script&family=Pacifico&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Kaushan+Script&family=Pacifico&family=Rubik+Doodle+Shadow&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Kaushan+Script&family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Rubik+Doodle+Shadow&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Honk&family=Kaushan+Script&family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Rubik+Doodle+Shadow&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Honk&family=Kaushan+Script&family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Rowdies:wght@300;400;700&family=Rubik+Doodle+Shadow&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Honk&family=Kaushan+Script&family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Rowdies:wght@300;400;700&family=Rubik+Doodle+Shadow&family=Rubik+Glitch&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body style="background: linear-gradient(150deg, blue,black);">
+    <div class="Formulario">
+        <h1>Iniciar sesión</h1>
+        <form method="post" action="login_usuario_be.php" id="loginForm">
+          <div class="nombre">
+            <input type="text" id="loginUsername" name="loginUsername" required>
+            <label for="loginUsername">Nombre de usuario</label>
+          </div>
+          <div class="nombre">
+            <input type="password" id="loginPassword" name="loginPassword">
+            <label for="loginPassword">Contraseña</label>
+          </div>
+          <div class="recordar">
+            <a href="brdstudios.html" class="recordar" style="text-decoration: none;">Volver al Inicio</a>
+          </div>
+          <Input type="submit" value="Iniciar sesión"></Input>
+          <div class="registrarse">
+            ¿No tiene cuenta?<a href="Registrarse.html">Registrarse</a>
+          </div>
+          
+        </form>
+      
+      </div>
+    <script>
+
+      document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var loginUsername = document.getElementById("loginUsername").value;
+        var loginPassword = document.getElementById("loginPassword").value;
+
+        // Obtener usuarios existentes de localStorage
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Verificar si las credenciales son válidas
+        var user = users.find(function(user) {
+        return user.username === loginUsername && user.password === loginPassword;
+        });
+
+        if (user) {
+            alert("Inicio de sesión exitoso.");
+            window.location.href = "brdstudios.html";
+        
+        // Aquí podrías redirigir al usuario a una página de bienvenida, etc.
+        } else {
+            alert("Nombre de usuario o contraseña incorrectos.");
+        
+        
+        }
+      });
+    </script>
+  
+</body>
+</html>
